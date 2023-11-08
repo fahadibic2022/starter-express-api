@@ -14,7 +14,7 @@ app.post('/success', (req, res) => {
   if (!line) {
     return res.status(400).json({ error: 'You must provide a "line" field in the request body' });
   }
-
+  const tmpDir = os.tmpdir();
   // Append the line to a text file
   fs.appendFile(path.join(tmpDir, 'data.txt'), line + '\n', (err) => {
     if (err) {
