@@ -9,7 +9,9 @@ app.get('/', (req, res) => {
   });
   
 app.post('/success', (req, res) => {
-  res.send(req);
+    
+  var response = "RequestBody: "+JSON.stringify(req.body);
+  res.send(response);
 });
 
 app.listen(port, () => {
