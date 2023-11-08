@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const os = require('os');
 const app = express();
 const port = 3000; // You can change the port if needed
 
@@ -15,12 +14,10 @@ app.post('/success', (req, res) => {
   if (!line) {
     return res.status(400).json({ error: 'You must provide a "line" field in the request body' });
   }
-  const tmpDir = os.tmpdir();
   // Append the line to a text file
-  fs.appendFile(path.join(tmpDir, 'data.txt'), line + '\n', (err) => {
+  fs.appendFile('data.txt', line + '\n', (err) => {
     if (err) {
-      return res.status(500).json({ error: 'Failed to store the line' + 
-      err.message });
+      return res.status(500).json({ error: 'Failed to store the line' });
     }
 
     res.status(200).json({ message: 'Line stored successfully' });
