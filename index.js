@@ -16,7 +16,7 @@ app.post('/success', (req, res) => {
   }
 
   // Append the line to a text file
-  fs.appendFile('data.txt', line + '\n', (err) => {
+  fs.appendFile(path.join(tmpDir, 'data.txt'), line + '\n', (err) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to store the line' + 
       err.message });
