@@ -8,8 +8,13 @@ app.get('/', (req, res) => {
     res.send(JSON.stringify(req.body));
   });
   
-app.post('/success', (req, res) => {
+app.post('/yoti-success', (req, res) => {
     
+  var response = "RequestBody: "+JSON.stringify(req.body);
+  res.send(response);
+});
+
+app.post('/case-update', (req, res) => {
   var response = "RequestBody: "+JSON.stringify(req.body);
   res.send(response);
 });
